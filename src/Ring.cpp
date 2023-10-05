@@ -82,7 +82,7 @@ void Ring::update() {
     break;
     case RingMode::GLOW:
       // Glow mode, value determines how bright the ring is
-      pos = (_value * 255) / 100;
+      pos = (_value * _brightness) / 100;
       _pixels.setBrightness(pos);
       for (uint16_t i = 0; i < _leds; i++) {
         _pixels.setPixelColor(i, _red, _green, _blue);
@@ -93,10 +93,10 @@ void Ring::update() {
       delta = _tween.update();
       switch (_direction) {
         case 0:
-          pos = (delta * 255) / 100;
+          pos = (delta * _brightness) / 100;
         break; 
         case 1:
-          pos = 255 - ((delta * 255) / 100);
+          pos = _brightness - ((delta * _brightness) / 100);
         break; 
       }
       _pixels.setBrightness(pos);

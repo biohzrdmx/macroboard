@@ -264,6 +264,6 @@ void loop() {
   if ( timerBlackout.hasFinished() && !blackout ) {
     blackout = true;
     ring.setMode(RingMode::SOLID);
-    ring.setBrightness(48);
+    ring.setBrightness(32);
   }
 }

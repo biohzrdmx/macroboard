@@ -209,11 +209,11 @@ void updateScreen() {
     display.clearDisplay();
     display.setTextColor(SSD1306_WHITE);
     if (! sleeping ) {
-      display.drawRect(2, 2, 126, 58, SSD1306_WHITE);
+      display.drawRoundRect(2, 2, 126, 56, 4, SSD1306_WHITE);
       if (action == -1) {
-        drawCenteredString(modes[mode].name, display.width(), display.height());
+        drawCenteredString(modes[mode].name, display.width(), display.height() - 4);
       } else {
-        drawCenteredString(modes[mode].actions[action].name, display.width(), display.height());
+        drawCenteredString(modes[mode].actions[action].name, display.width(), display.height() - 4);
       }
     }
     display.display();
